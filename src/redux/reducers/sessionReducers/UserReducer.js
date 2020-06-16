@@ -2,6 +2,7 @@ import { createReducer } from '@reduxjs/toolkit';
 import { LOGIN_SUCCESS_ACTION } from '../../actions/sessionActions/LoginActions';
 import { SIGNUP_SUCCESS_ACTION } from '../../actions/sessionActions/SignupActions';
 import { LOGOUT_ACTION } from '../../actions/sessionActions/LogoutActions';
+import { REFRESH_USER_SUCCESS_ACTION } from '../../actions/sessionActions/RefreshUserActions';
 
 const userReducer = createReducer(
   {},
@@ -14,6 +15,9 @@ const userReducer = createReducer(
     },
     [LOGOUT_ACTION]: () => {
       return {};
+    },
+    [REFRESH_USER_SUCCESS_ACTION]: (state, action) => {
+      return action.payload;
     },
   },
 );

@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { FILTER_CONTACT_ACTION, RESET_FILTER_ACTION } from '../actions/ContactFilterActions';
+import { FILTER_CONTACT_ACTION, RESET_FILTER_ACTION } from '../../actions/ContactFilterActions';
 
 const filterReducer = createReducer('', {
   [FILTER_CONTACT_ACTION]: (state, action) => {

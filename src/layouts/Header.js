@@ -67,7 +67,7 @@ const Header = props => {
                     <MenuItem
                       onClick={() => {
                         handleClose();
-                        props.logout(props.token);
+                        props.logout();
                       }}
                     >
                       LOGOUT

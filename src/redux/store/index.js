@@ -14,7 +14,7 @@ const store = configureStore({
 
 store.subscribe(() => {
   saveState({
-    session: store.getState().session,
+    token: store.getState().token,
   });
 });
 

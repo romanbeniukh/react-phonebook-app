@@ -1,11 +1,17 @@
 import { connect } from 'react-redux';
-import { GET_NOTIFICATION_MESSAGE } from '../selectors/NotificationSelector';
 import { IS_LOADING } from '../selectors/LoadingSerector';
+import { refreshUser } from '../operations/sessionOperations';
+import { GET_TOKEN, IS_REFRESH_USER } from '../selectors/SessionSelectors';
 import App from '../../App';
 
 const mapStateToProps = state => ({
-  notificationMessage: GET_NOTIFICATION_MESSAGE(state),
+  token: GET_TOKEN(state),
   isLoading: IS_LOADING(state),
+  isRefreshingUser: IS_REFRESH_USER(state),
 });
 
-export default connect(mapStateToProps, null)(App);
+const mapDispatchToProps = dispatch => ({
+  refreshUser: token => dispatch(refreshUser(token)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
