@@ -1,15 +1,19 @@
 import React from 'react';
 import T from 'prop-types';
+import { TextField } from '@material-ui/core';
 
 const ContactFilter = ({ changeFilter, value }) => (
   <div className="contact-filter">
-    <input
+    <TextField
+      className="form__element form__element--input"
+      id="search"
+      label="Search contacts by name"
+      variant="outlined"
+      name="search"
       onChange={e => changeFilter(e.currentTarget.value)}
       value={value}
-      maxLength={20}
-      placeholder="Введите имя контакта..."
-      type="text"
-      name="search"
+      autoComplete="off"
+      fullWidth
     />
   </div>
 );

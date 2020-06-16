@@ -15,6 +15,8 @@ import {
 } from '../actions/contactsActions/GetContactsActions';
 import api from '../../api/sessionApi/requests';
 import toggleNotification from './toggleNotification';
+import { RESET_FILTER_ACTION } from '../actions/ContactFilterActions';
+import { GET_FILTERED_CONTACTS } from '../selectors/ContactsSelector';
 
 export const getContacts = () => dispatch => {
   dispatch(GET_CONTACTS_REQUEST_ACTION());
@@ -30,13 +32,15 @@ export const getContacts = () => dispatch => {
     });
 };
 
-export const deleteContact = id => dispatch => {
+export const deleteContact = id => (dispatch, getState) => {
   dispatch(DELETE_CONTACT_REQUEST_ACTION());
 
   api
     .deleteContact(id)
     .then(() => {
+      const filteredContacts = GET_FILTERED_CONTACTS(getState());
       dispatch(DELETE_CONTACT_SUCCESS_ACTION(id));
+      filteredContacts.length <= 1 && dispatch(RESET_FILTER_ACTION());
     })
     .catch(err => {
       dispatch(DELETE_CONTACT_ERROR_ACTION(err));
