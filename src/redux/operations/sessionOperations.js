@@ -4,7 +4,11 @@ import {
   SIGNUP_SUCCESS_ACTION,
   SIGNUP_ERROR_ACTION,
 } from '../actions/sessionActions/SignupActions';
-import { LOGOUT_ACTION } from '../actions/sessionActions/LogoutActions';
+import {
+  LOGOUT_REQUEST_ACTION,
+  LOGOUT_SUCCESS_ACTION,
+  LOGOUT_ERROR_ACTION,
+} from '../actions/sessionActions/LogoutActions';
 import {
   REFRESH_USER_REQUEST_ACTION,
   REFRESH_USER_SUCCESS_ACTION,
@@ -45,14 +49,17 @@ export const signup = credentials => dispatch => {
 };
 
 export const logout = () => dispatch => {
+  dispatch(LOGOUT_REQUEST_ACTION());
+
   api
     .logout()
     .then(() => {
       api.clearAuthToken();
-      dispatch(LOGOUT_ACTION());
+      dispatch(LOGOUT_SUCCESS_ACTION());
     })
     .catch(err => {
-      console.log(err);
+      dispatch(LOGOUT_ERROR_ACTION(err));
+      dispatch(toggleNotification());
     });
 };
 

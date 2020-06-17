@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import T from 'prop-types';
 import ReactRouterPropTypes from 'react-router-prop-types';
 import Section from '../layouts/Section';
-import SignupForm from '../redux/containers/SignupFormContainer';
+import SignupForm from '../redux/containers/components/SignupFormContainer';
 
 const SignupPage = ({ isAuth, history }) => {
   useEffect(() => {

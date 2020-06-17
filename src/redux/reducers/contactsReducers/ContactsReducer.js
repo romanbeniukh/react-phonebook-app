@@ -2,7 +2,7 @@ import { createReducer } from '@reduxjs/toolkit';
 import { GET_CONTACTS_SUCCESS_ACTION } from '../../actions/contactsActions/GetContactsActions';
 import { DELETE_CONTACT_SUCCESS_ACTION } from '../../actions/contactsActions/DeleteContactActions';
 import { ADD_CONTACT_SUCCESS_ACTION } from '../../actions/contactsActions/AddContactActions';
-import { LOGOUT_ACTION } from '../../actions/sessionActions/LogoutActions';
+import { LOGOUT_SUCCESS_ACTION } from '../../actions/sessionActions/LogoutActions';
 
 const contactsReducer = createReducer([], {
   [GET_CONTACTS_SUCCESS_ACTION]: (state, action) => {
@@ -14,7 +14,7 @@ const contactsReducer = createReducer([], {
   [ADD_CONTACT_SUCCESS_ACTION]: (state, action) => {
     return [...state, action.payload];
   },
-  [LOGOUT_ACTION]: () => {
+  [LOGOUT_SUCCESS_ACTION]: () => {
     return [];
   },
 });

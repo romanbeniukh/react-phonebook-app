@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import T from 'prop-types';
 import ReactRouterPropTypes from 'react-router-prop-types';
-import LoginForm from '../redux/containers/LoginFormContainer';
+import LoginForm from '../redux/containers/components/LoginFormContainer';
 import Section from '../layouts/Section';
 
 const LoginPage = ({ isAuth, history }) => {

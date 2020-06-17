@@ -1,9 +1,29 @@
 import React, { useState } from 'react';
-import { Toolbar, CssBaseline, AppBar, Typography, Button, Menu, MenuItem } from '@material-ui/core';
+import { Toolbar, CssBaseline, AppBar, Typography, Button, Menu, MenuItem, makeStyles } from '@material-ui/core';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { NavLink, Link } from 'react-router-dom';
 import T from 'prop-types';
 import HideOnScroll from '../helpers/HideOnScroll';
+
+const useStyles = makeStyles(theme => ({
+  button: {
+    margin: theme.spacing(1),
+    textTransform: 'none',
+    [theme.breakpoints.down('xs')]: {
+      minWidth: 32,
+      paddingLeft: 8,
+      paddingRight: 8,
+      '& .MuiButton-endIcon': {
+        margin: 0,
+      },
+    },
+  },
+  buttonText: {
+    [theme.breakpoints.down('xs')]: {
+      display: 'none',
+    },
+  },
+}));
 
 const Header = props => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -16,6 +36,9 @@ const Header = props => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const clases = useStyles();
+
   return (
     <>
       <CssBaseline />
@@ -24,7 +47,7 @@ const Header = props => {
           <Toolbar className="header">
             <Typography variant="h6">Phonebook</Typography>
             <div className="header__link-wrap">
-              <NavLink className="header__link" to="/home">
+              <NavLink className="header__link" to="/">
                 Home
               </NavLink>
               <NavLink className="header__link" to="/contacts">
@@ -40,8 +63,9 @@ const Header = props => {
                     variant="outlined"
                     endIcon={<AccountCircle />}
                     color="inherit"
+                    className={clases.button}
                   >
-                    Welcome, {props.userName}
+                    <span className={clases.buttonText}>Welcome, {props.userName}</span>
                   </Button>
                   <Menu
                     id="menu-appbar"
@@ -70,7 +94,7 @@ const Header = props => {
                         props.logout();
                       }}
                     >
-                      LOGOUT
+                      Logout
                     </MenuItem>
                   </Menu>
                 </div>

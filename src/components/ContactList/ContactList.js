@@ -12,9 +12,9 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import T from 'prop-types';
 
-const ContactList = ({ contacts, deleteContact, isLoading, filteredContacts }) => (
+const ContactList = ({ contactsLength, deleteContact, isLoading, filteredContacts }) => (
   <>
-    {contacts.length ? (
+    {contactsLength ? (
       <List>
         {filteredContacts.map(contact => (
           <ListItem key={contact.id} className="contact-list__item">
@@ -35,17 +35,15 @@ const ContactList = ({ contacts, deleteContact, isLoading, filteredContacts }) =
     ) : (
       ''
     )}
-    {!isLoading && !contacts.length && <span>Not contacts :(</span>}
+    {!isLoading && !contactsLength && <span>Not contacts :(</span>}
   </>
 );
 
 ContactList.propTypes = {
-  contacts: T.arrayOf(T.object),
+  contactsLength: T.number.isRequired,
   filteredContacts: T.arrayOf(T.object),
   isLoading: T.bool.isRequired,
   deleteContact: T.func.isRequired,
-  // resetFilter: T.func.isRequired,
-  // toggleNotification: T.func.isRequired,
 };
 
 export default ContactList;

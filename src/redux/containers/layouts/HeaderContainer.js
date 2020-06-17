@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import { GET_AUTH, GET_USER_NAME } from '../selectors/SessionSelectors';
-import { logout } from '../operations/sessionOperations';
-import Header from '../../layouts/Header';
+import { GET_AUTH, GET_USER_NAME } from '../../selectors/SessionSelectors';
+import { logout } from '../../operations/sessionOperations';
+import Header from '../../../layouts/Header';
 
 const mapStateToProps = state => ({
   isAuth: GET_AUTH(state),

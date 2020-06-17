@@ -15,7 +15,7 @@ import {
 } from '../actions/contactsActions/GetContactsActions';
 import api from '../../api/sessionApi/requests';
 import toggleNotification from './toggleNotification';
-import { RESET_FILTER_ACTION } from '../actions/ContactFilterActions';
+import { RESET_FILTER_ACTION } from '../actions/contactsActions/ContactFilterActions';
 import { GET_FILTERED_CONTACTS } from '../selectors/ContactsSelector';
 
 export const getContacts = () => dispatch => {

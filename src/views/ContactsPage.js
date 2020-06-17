@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import T from 'prop-types';
 import ReactRouterPropTypes from 'react-router-prop-types';
-import ContactList from '../redux/containers/ContactsListContainer';
-import ContactForm from '../redux/containers/ContactFormContainer';
+import ContactList from '../redux/containers/components/ContactsListContainer';
+import ContactForm from '../redux/containers/components/ContactFormContainer';
 import Section from '../layouts/Section';
-import ContactFilter from '../redux/containers/ContactFilterContainer';
+import ContactFilter from '../redux/containers/components/ContactFilterContainer';
 
 const ContactsPage = ({ isAuth, history, getContacts, contactsLength }) => {
   useEffect(() => {

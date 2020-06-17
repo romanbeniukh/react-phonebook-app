@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import * as sessionOperations from '../operations/sessionOperations';
-import LoginForm from '../../components/LoginForm/LoginForm';
-import { IS_LOADING } from '../selectors/LoadingSerector';
+import * as sessionOperations from '../../operations/sessionOperations';
+import LoginForm from '../../../components/LoginForm/LoginForm';
+import { IS_LOADING } from '../../selectors/LoadingSerector';
 
 const mapStateToProps = state => ({
   isLoading: IS_LOADING(state),

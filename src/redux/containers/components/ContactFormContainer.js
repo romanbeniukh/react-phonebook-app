@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import { addContact } from '../operations/contactsOperations';
-import ContactForm from '../../components/ContactForm/ContactForm';
-import { GET_ALL_CONTACTS } from '../selectors/ContactsSelector';
-import toggleNotification from '../operations/toggleNotification';
-import { IS_LOADING } from '../selectors/LoadingSerector';
+import { addContact } from '../../operations/contactsOperations';
+import ContactForm from '../../../components/ContactForm/ContactForm';
+import { GET_ALL_CONTACTS } from '../../selectors/ContactsSelector';
+import toggleNotification from '../../operations/toggleNotification';
+import { IS_LOADING } from '../../selectors/LoadingSerector';
 
 const mapStateToProps = state => ({
   contacts: GET_ALL_CONTACTS(state),
