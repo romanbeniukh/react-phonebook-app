@@ -3,6 +3,7 @@ import { GET_CONTACTS_SUCCESS_ACTION } from '../../actions/contactsActions/GetCo
 import { DELETE_CONTACT_SUCCESS_ACTION } from '../../actions/contactsActions/DeleteContactActions';
 import { ADD_CONTACT_SUCCESS_ACTION } from '../../actions/contactsActions/AddContactActions';
 import { LOGOUT_SUCCESS_ACTION } from '../../actions/sessionActions/LogoutActions';
+import { DELETE_USER_SUCCESS_ACTION } from '../../actions/sessionActions/DeleteUser';
 
 const contactsReducer = createReducer([], {
   [GET_CONTACTS_SUCCESS_ACTION]: (state, action) => {
@@ -15,6 +16,9 @@ const contactsReducer = createReducer([], {
     return [...state, action.payload];
   },
   [LOGOUT_SUCCESS_ACTION]: () => {
+    return [];
+  },
+  [DELETE_USER_SUCCESS_ACTION]: () => {
     return [];
   },
 });

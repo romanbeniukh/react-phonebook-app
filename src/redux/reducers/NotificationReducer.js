@@ -4,6 +4,7 @@ import { LOGIN_ERROR_ACTION } from '../actions/sessionActions/LoginActions';
 import { SIGNUP_ERROR_ACTION } from '../actions/sessionActions/SignupActions';
 import { REFRESH_USER_ERROR_ACTION } from '../actions/sessionActions/RefreshUserActions';
 import { LOGOUT_ERROR_ACTION } from '../actions/sessionActions/LogoutActions';
+import { DELETE_USER_ERROR_ACTION } from '../actions/sessionActions/DeleteUser';
 import { GET_CONTACTS_ERROR_ACTION } from '../actions/contactsActions/GetContactsActions';
 import { ADD_CONTACT_ERROR_ACTION } from '../actions/contactsActions/AddContactActions';
 import { DELETE_CONTACT_ERROR_ACTION } from '../actions/contactsActions/DeleteContactActions';
@@ -27,6 +28,9 @@ const notificationReducer = createReducer(
       return action.payload;
     },
     [LOGOUT_ERROR_ACTION]: (state, action) => {
+      return action.payload;
+    },
+    [DELETE_USER_ERROR_ACTION]: (state, action) => {
       return action.payload;
     },
     [GET_CONTACTS_ERROR_ACTION]: (state, action) => {

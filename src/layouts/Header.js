@@ -86,7 +86,7 @@ const Header = props => {
                       to="/cabinet"
                       style={{ color: 'rgba(0, 0, 0, 0.87)', textDecoration: 'none', display: 'block' }}
                     >
-                      <MenuItem onClick={handleClose}>My cabinet</MenuItem>
+                      <MenuItem onClick={handleClose}>My account</MenuItem>
                     </Link>
                     <MenuItem
                       onClick={() => {

@@ -13,7 +13,7 @@ import {
   GET_CONTACTS_SUCCESS_ACTION,
   GET_CONTACTS_ERROR_ACTION,
 } from '../actions/contactsActions/GetContactsActions';
-import api from '../../api/sessionApi/requests';
+import api from '../../api/requests';
 import toggleNotification from './toggleNotification';
 import { RESET_FILTER_ACTION } from '../actions/contactsActions/ContactFilterActions';
 import { GET_FILTERED_CONTACTS } from '../selectors/ContactsSelector';

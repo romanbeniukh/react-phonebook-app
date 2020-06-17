@@ -24,6 +24,10 @@ export default {
     const { data } = await axios.get(endpoint.CURRENT_USER_API());
     return data;
   },
+  deleteUser: async () => {
+    const { data } = await axios.delete(endpoint.DELETE_USER_API());
+    return data;
+  },
   getContacts: async () => {
     const { data } = await axios.get(endpoint.GET_CONTACTS());
     return data;

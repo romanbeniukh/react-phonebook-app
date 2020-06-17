@@ -1,8 +1,9 @@
 import React from 'react';
+import Welcome from '../redux/containers/components/WelcomeContainer';
 
 const HomePage = () => (
   <>
-    <span>HomePage</span>
+    <Welcome />
   </>
 );
 

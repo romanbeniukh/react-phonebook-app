@@ -11,6 +11,11 @@ import {
   REFRESH_USER_ERROR_ACTION,
 } from '../actions/sessionActions/RefreshUserActions';
 import {
+  DELETE_USER_REQUEST_ACTION,
+  DELETE_USER_SUCCESS_ACTION,
+  DELETE_USER_ERROR_ACTION,
+} from '../actions/sessionActions/DeleteUser';
+import {
   LOGOUT_REQUEST_ACTION,
   LOGOUT_SUCCESS_ACTION,
   LOGOUT_ERROR_ACTION,
@@ -66,6 +71,15 @@ const loadingReducer = createReducer(false, {
     return false;
   },
   [LOGOUT_ERROR_ACTION]: () => {
+    return false;
+  },
+  [DELETE_USER_REQUEST_ACTION]: () => {
+    return true;
+  },
+  [DELETE_USER_SUCCESS_ACTION]: () => {
+    return false;
+  },
+  [DELETE_USER_ERROR_ACTION]: () => {
     return false;
   },
   [GET_CONTACTS_REQUEST_ACTION]: () => {

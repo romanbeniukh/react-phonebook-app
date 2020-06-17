@@ -14,7 +14,12 @@ import {
   REFRESH_USER_SUCCESS_ACTION,
   REFRESH_USER_ERROR_ACTION,
 } from '../actions/sessionActions/RefreshUserActions';
-import api from '../../api/sessionApi/requests';
+import {
+  DELETE_USER_REQUEST_ACTION,
+  DELETE_USER_SUCCESS_ACTION,
+  DELETE_USER_ERROR_ACTION,
+} from '../actions/sessionActions/DeleteUser';
+import api from '../../api/requests';
 import toggleNotification from './toggleNotification';
 import { GET_TOKEN } from '../selectors/SessionSelectors';
 
@@ -79,5 +84,19 @@ export const refreshUser = () => (dispatch, getState) => {
     .catch(err => {
       dispatch(REFRESH_USER_ERROR_ACTION(err));
       dispatch(toggleNotification());
+    });
+};
+
+export const deleteUser = () => dispatch => {
+  dispatch(DELETE_USER_REQUEST_ACTION());
+
+  api
+    .deleteUser()
+    .then(res => {
+      api.clearAuthToken();
+      dispatch(DELETE_USER_SUCCESS_ACTION(res));
+    })
+    .catch(err => {
+      dispatch(DELETE_USER_ERROR_ACTION(err));
     });
 };

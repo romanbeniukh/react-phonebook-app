@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import T from 'prop-types';
 import ReactRouterPropTypes from 'react-router-prop-types';
+import Section from '../layouts/Section';
+import UserInfo from '../redux/containers/components/UserInfoContainer';
 
 const CabinetPage = ({ isAuth, history }) => {
   useEffect(() => {
@@ -9,7 +11,9 @@ const CabinetPage = ({ isAuth, history }) => {
 
   return (
     <>
-      <span>CabinetPage</span>
+      <Section title="Cabinet" hiddenTitle>
+        <UserInfo />
+      </Section>
     </>
   );
 };
